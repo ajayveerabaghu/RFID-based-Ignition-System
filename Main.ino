@@ -38,6 +38,7 @@ void loop()
     }
     if (count == 12)
     {
+      //Validating the RFID card 
       if ((strncmp(input, "", 12) == 0) && (a == 0))
       {
         lcd.setCursor(0, 0);
@@ -46,8 +47,10 @@ void loop()
         lcd.print("Welcome               ");
         delay(1000);
         a = 1;
+        //Calling fingerprint function to valid the fingerprint of the user
         fingerprint();
       }
+      //Validating the RFID card 
       else if ((strncmp(input, "", 12) == 0) && (a == 0))
       {
         lcd.setCursor(0, 0);
@@ -56,8 +59,10 @@ void loop()
         lcd.print("Welcome                ");
         delay(1000);
         a = 1;
+        //Calling fingerprint function to valid the fingerprint of the user
         fingerprint();
       }
+      //It will throws an error if it is invalid
       else
       {
         if (a != 1)
@@ -94,6 +99,7 @@ void fingerprint()
         {
         int fingerprintID = getFingerprintID();
         delay(50);
+          //Valid the fingerprint
         if (fingerprintID == 1)
         {
           lcd.setCursor(0, 0);
